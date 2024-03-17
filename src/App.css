@@ -4,7 +4,7 @@
   justify-content: space-between;
   text-align: center;
   background-color: #f2f4f3;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 h1{
@@ -12,8 +12,22 @@ h1{
   padding: 15px 0;
 }
 
+.navigation-links-container{
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
 .navigate{
+  color: #282c34;
+  text-decoration: none;
   cursor: pointer;
+  font-size: large;
+}
+
+.navlink-container{
+  list-style: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -22,36 +36,22 @@ h1{
   }
 }
 
-.App-header {
-  background-color: #fff;
-  /* min-height: 100vh; */
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  font-size: calc(10px + 2vmin);
-  color: #282c34;
-}
-
-.App-link {
-  color: #282c34;
-  cursor: pointer;
-}
-
 input,textarea{
-  border: 1px solid #282c34;
+  border: 1px solid #333846B3;
   background-color: #f2f4f3;
+  border-radius: 5px;
   padding: 10px 5px;
   outline:0;
 }
 
 .submit-btn{
-  padding: 8px 10px;
+  padding: 8px 20px;
   background: #0094c6;
   border: none;
   color: #fff;
   border-radius: 15px;
   cursor: pointer;
+  margin: auto;
 }
 
 .submit-btn:hover{

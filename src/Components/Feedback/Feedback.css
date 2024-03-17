@@ -15,10 +15,21 @@
     gap: 1rem;
 }
 
+textarea{
+    resize: none;
+}
+
 .tips{
     font-size: medium;
     text-align: left;
-    width: 500px;
+    width: 400px;
     height: 250px;
+}
+
+.tips h3{
+    color: #333846;
+}
+.tips li{
+    color: #333846B3;
 }
 

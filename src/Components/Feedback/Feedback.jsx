@@ -3,9 +3,6 @@ import "./Feedback.css";
 function Feedback({ setComponent }) {
   return (
     <div>
-      <span>
-        <h1>Feedback</h1>
-      </span>
       <div className="feedback-container">
         <div className="feedback">
           <textarea
@@ -13,6 +10,7 @@ function Feedback({ setComponent }) {
             id="feed-content"
             cols="30"
             rows="10"
+            placeholder="Share your experience"
           ></textarea>
           <input
             type="text"

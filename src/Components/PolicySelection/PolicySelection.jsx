@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./PolicySelection.css";
 
 function PolicySelection({ setComponent }) {
   const url = "http://localhost:8080";
@@ -19,16 +20,18 @@ function PolicySelection({ setComponent }) {
     const getPolicies = async () => {
       let result = await fetch(url + "/policies");
       let response = await result.json();
-      console.log(response);
       setPolicies(response);
+      // setPolicyList(response[Object.keys(policies).at(0)]);
     };
     getPolicies();
   }, []);
 
   useEffect(() => {
+    console.log("selected policy type: " + type + "policy title: " + title);
+
     if (type !== "" && title !== "") {
       policyList.forEach((policy) => {
-        if (policy.policyType === title) {
+        if (policy.policyTitle === title) {
           setCurrentPolicy(policy);
           setSumAssured(policy.sumAssured);
           setPremium(policy.premium);
@@ -39,7 +42,8 @@ function PolicySelection({ setComponent }) {
   }, [type, title, policyList]);
 
   function UpdatePolicyList(event) {
-    setPolicyList(policies[event.target.value]);
+    setPolicyList(policies[event.target.innerHTML]);
+    console.log(policyList);
   }
 
   function ConfirmPolicy() {
@@ -71,10 +75,50 @@ function PolicySelection({ setComponent }) {
   }
 
   return (
-    <div>
-      <p>Policy Selection</p>
+    <div className="selection-container">
+      <h2>Policy Selection</h2>
       <div>
-        <span className="policy-elements">
+        <div className="policy-type">
+          <h3>Policy Type</h3>
+          <ul className="policy-list">
+            {Object.keys(policies).length ? (
+              Object.keys(policies).map((type) => (
+                <li
+                  className="options"
+                  onClick={(e) => {
+                    setType(e.target.innerHTML);
+                    setTitle("");
+                    setSumAssured("");
+                    setPremium("");
+                    setTerm("");
+                    setCurrentPolicy("");
+                    UpdatePolicyList(e);
+                  }}
+                >
+                  {type}
+                </li>
+              ))
+            ) : (
+              <div>No Policies available.</div>
+            )}
+          </ul>
+        </div>
+        <div className="policy-type">
+          <h3>Policy Title</h3>
+          <ul className="policy-list">
+            {policyList.map((policy) => {
+              return (
+                <li
+                  className="options"
+                  onClick={(e) => setTitle(e.target.innerHTML)}
+                >
+                  {policy.policyTitle}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        {/* <span className="policy-elements">
           <label htmlFor="policyType">Policy Type</label>
           <select
             id="policyType"
@@ -107,9 +151,9 @@ function PolicySelection({ setComponent }) {
               <option value={policy.policyType}>{policy.policyType}</option>
             ))}
           </select>
-        </span>
+        </span> */}
         <br />
-        <span className="policy-elements">
+        <span className="policy-details">
           <label htmlFor="sumAssured">SumAssured</label>
           <input
             type="text"
@@ -120,7 +164,7 @@ function PolicySelection({ setComponent }) {
           />
         </span>
         <br />
-        <span className="policy-elements">
+        <span className="policy-details">
           <label htmlFor="premium">Premium</label>
           <input
             type="text"
@@ -131,18 +175,17 @@ function PolicySelection({ setComponent }) {
           />
         </span>
         <br />
-        <span className="policy-elements">
+        <span className="policy-details">
           <label htmlFor="term">Term</label>
           <input type="text" id="term" maxLength={50} value={term} readOnly />
         </span>
         <br />
-        <button onClick={ConfirmPolicy}>Confirm</button>
+        <span id="confirm-btn">
+          <button className="submit-btn" onClick={ConfirmPolicy}>
+            Confirm
+          </button>
+        </span>
       </div>
-      <footer>
-        <p className="navigate" onClick={() => setComponent("HomePage")}>
-          Back
-        </p>
-      </footer>
     </div>
   );
 }

@@ -1,0 +1,8 @@
+.landing-container .App-link{
+    color: #0094c6;
+    font-size: calc(10px + 2vmin);
+}
+
+.landing-container .App-link:hover{
+    text-decoration: underline;
+}

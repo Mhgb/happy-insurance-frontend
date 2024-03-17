@@ -1,3 +1,5 @@
+import "./Pagination.css";
+
 function Pagination({ totalPages, updateCurrentPage }) {
   let pages = [];
   for (let i = 0; i < totalPages; i++) {
@@ -7,7 +9,11 @@ function Pagination({ totalPages, updateCurrentPage }) {
   return (
     <div>
       {pages.map((page, index) => (
-        <button key={index} onClick={() => updateCurrentPage(page)}>
+        <button
+          className="page-no"
+          key={index}
+          onClick={() => updateCurrentPage(page)}
+        >
           {page + 1}
         </button>
       ))}

@@ -11,6 +11,8 @@ import Nominee from "./Components/Nominee/Nominee";
 import Blog from "./Components/Blog/Blog";
 import Contact from "./Components/Contact/Contact";
 import Feedback from "./Components/Feedback/Feedback";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
   const [component, setComponent] = useState("LandingPage");
@@ -47,13 +49,10 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>
-          Happy <br />
-          <span>Insurance Online</span>
-        </h1>
-      </header>
-      <div className="content">{loadComponent()}</div>
+      <Navbar />
+      <div className="content">
+        <Outlet />
+      </div>
       <footer>
         <p>@Happy Insurance Online ❤</p>
       </footer>

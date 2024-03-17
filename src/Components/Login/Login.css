@@ -16,6 +16,8 @@
 
 #errorMsg{
     border: 1.5px solid #E21818;
+    width: 90%;
+    margin: auto;
     padding: 10px 5px;
     background-color: #FF9F9F;
 }

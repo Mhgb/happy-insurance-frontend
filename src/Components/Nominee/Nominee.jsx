@@ -46,9 +46,7 @@ function Nominee({ setComponent }) {
   return (
     <div className="nominee-container">
       <span className="nominee-elements">
-        <label htmlFor="name">
-          Nominee Name<span>*</span>
-        </label>
+        <label htmlFor="name">Nominee Name</label>
         <input
           type="text"
           id="name"
@@ -58,9 +56,7 @@ function Nominee({ setComponent }) {
         />
       </span>
       <span className="nominee-elements">
-        <label htmlFor="relationship">
-          Relationship with customer<span>*</span>
-        </label>
+        <label htmlFor="relationship">Relationship with customer</label>
         <input
           type="text"
           id="relationship"
@@ -75,11 +71,6 @@ function Nominee({ setComponent }) {
         onClick={handleSubmit}
         className="submit-btn"
       />
-      <footer>
-        <p className="navigate" onClick={() => setComponent("HomePage")}>
-          Back
-        </p>
-      </footer>
     </div>
   );
 }

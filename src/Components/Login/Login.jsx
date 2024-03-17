@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./Login.css";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 
 function Login({ setComponent }) {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, toggleErrorMsg] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleLogin() {
     if (userId !== "" && password !== "") {
@@ -23,25 +26,33 @@ function Login({ setComponent }) {
         .then((responseData) => {
           console.log(responseData);
 
-          if (responseData["validCustomer"]) {
+          if (responseData["validCustomer"] === "true") {
             sessionStorage.setItem("userId", responseData["userId"]);
             sessionStorage.setItem("username", responseData["username"]);
-            setComponent("HomePage");
+            navigate("/happy-insurance/home");
           } else {
-            alert("Username/ password not valid. Please try again");
+            toggleErrorMsg(true);
           }
+        })
+        .catch((error) => {
+          console.log(error);
+          throw Error("Failed to Login. Try again");
         });
     } else {
-      setErrorMsg("Username/ password not valid. Please try again");
+      toggleErrorMsg(true);
     }
   }
   return (
     <div className="login-container">
-      <span>
-        <h1>Login</h1>
-      </span>
       <div className="login-form">
-        <span id="errorMsg">{errorMsg}</span>
+        <span>
+          <h1>Login</h1>
+        </span>
+        {errorMsg && (
+          <span id="errorMsg">
+            Username/ password not valid. Please try again.
+          </span>
+        )}
         <span className="form-elements">
           <label htmlFor="userId">UserId</label>
           <input
@@ -71,28 +82,14 @@ function Login({ setComponent }) {
           className="submit-btn"
         />
       </div>
-      <footer>
-        <span>
-          <p
-            className="navigate"
-            onClick={() => {
-              setComponent("LandingPage");
-            }}
-          >
-            Home
-          </p>
-        </span>
-        <span>
-          <p
-            className="navigate"
-            onClick={() => {
-              setComponent("CustomerRegistration");
-            }}
-          >
-            Register?
-          </p>
-        </span>
-      </footer>
+      <div className="navigation-links-container">
+        <Link className="navigate" to={"../"}>
+          Home
+        </Link>
+        <Link className="navigate" to={"../create-account"}>
+          Register?
+        </Link>
+      </div>
     </div>
   );
 }
