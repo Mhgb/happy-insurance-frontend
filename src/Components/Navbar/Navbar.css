@@ -1,0 +1,25 @@
+.App-header {
+    background-color: #fff;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 30px;
+    /* min-height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: #282c34;
+}
+
+.App-link {
+    color: #282c34;
+    text-decoration: none;
+}
+
+.navlink-container .App-link:hover{
+    color: #0094c6;
+}
+.navlink-container{
+    display: flex;
+    gap: 1rem;
+}

@@ -1,28 +1,11 @@
+import { Link } from "react-router-dom";
+
 function LandingPage({ setComponent }) {
   return (
     <div>
-      <p className="App-link" onClick={() => setComponent("Blog")}>
-        Blog
-      </p>
-      <br />
-      <p className="App-link" onClick={() => setComponent("Contact")}>
-        Contact
-      </p>
-      <br />
-      <p className="App-link" onClick={() => setComponent("Feedback")}>
-        Feedback
-      </p>
-      <br />
-      <p className="App-link" onClick={() => setComponent("Login")}>
-        SignIn
-      </p>
-      <br />
-      <p
-        className="App-link"
-        onClick={() => setComponent("CustomerRegistration")}
-      >
+      <Link className="App-link" to={"create-account"}>
         Register
-      </p>
+      </Link>
     </div>
   );
 }
