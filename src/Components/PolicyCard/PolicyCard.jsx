@@ -2,12 +2,29 @@ import "./PolicyCard.css";
 function PolicyCard({ customePolicy }) {
   return (
     <div className="card">
-      <p>{customePolicy.policyId}</p>
-      <p>{customePolicy.policyType}</p>
-      <p>{customePolicy.policyTitle}</p>
-      <p>maturity date: {customePolicy.maturityDate}</p>
-      <p>Term: {customePolicy.term}</p>
-      <p>Premium: {customePolicy.premium}</p>
+      <p>
+        <span>Policy Id</span> {customePolicy.policyId}
+      </p>
+      <p>
+        <span>Type </span>
+        {customePolicy.policyType}
+      </p>
+      <p>
+        <span>Title </span>
+        {customePolicy.policyTitle}
+      </p>
+      <p>
+        <span>maturity date </span>
+        {customePolicy.maturityDate}
+      </p>
+      <p>
+        <span>Term </span>
+        {customePolicy.term}
+      </p>
+      <p>
+        <span>Premium </span>
+        {customePolicy.premium}
+      </p>
     </div>
   );
 }

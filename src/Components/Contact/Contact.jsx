@@ -4,9 +4,6 @@ function Contact({ setComponent }) {
   return (
     <div>
       <div className="contact-us">
-        <span>
-          <h1>Contact Us</h1>
-        </span>
         <div id="contact-card-container">
           <div id="motor-insurance" className="contact-card">
             <h2>Motor Insurance</h2>

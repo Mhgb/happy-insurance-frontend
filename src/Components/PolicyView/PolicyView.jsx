@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PolicyCard from "../PolicyCard/PolicyCard";
 import Pagination from "../Pagination/Pagination";
+import "./PolicyView.css";
 
 function PolicyView({ setComponent }) {
   const url = "http://localhost:8080";
@@ -17,7 +18,7 @@ function PolicyView({ setComponent }) {
         url + "/view-your-policies?cust_id=" + userId + "&pageNo=" + currentPage
       );
       let response = await result.json();
-      console.log(response["pageable"]["pageNumber"]);
+      console.log(response);
       updateTotalPages(response["totalPages"]);
       updateCurrentPage(response["pageable"]["pageNumber"]);
       updateYourPolicies(response["content"]);
@@ -26,9 +27,9 @@ function PolicyView({ setComponent }) {
   }, [currentPage]);
 
   return (
-    <div>
-      <p>View Your Policies</p>
-      <div>
+    <div className="view-container">
+      <h3>View Your Policies</h3>
+      <div className="policy-cards-container">
         {yourPolicies.map((customePolicy) => (
           <PolicyCard customePolicy={customePolicy} />
         ))}
@@ -37,9 +38,6 @@ function PolicyView({ setComponent }) {
         totalPages={totalPages}
         updateCurrentPage={updateCurrentPage}
       />
-      <p className="navigate" onClick={() => setComponent("HomePage")}>
-        Back
-      </p>
     </div>
   );
 }

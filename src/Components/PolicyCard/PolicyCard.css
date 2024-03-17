@@ -1,6 +1,16 @@
 .card{
+    /* flex: 1; */
+    background-color: #fff;
+
+    padding:  0px 15px;
+    text-align: left;
     border: 1px solid;
     border-radius: 5px;
-    color: #fff;
-    background-color: #232323;
+    /* width: 300px;
+    min-height: 300px; */
+    /* color: #fff; */
+    /* background-color: #232323; */
+}
+p span{
+    font-weight: 600;
 }

@@ -10,6 +10,10 @@ import Contact from "./Components/Contact/Contact";
 import Feedback from "./Components/Feedback/Feedback";
 import Login from "./Components/Login/Login";
 import CustomerRegistration from "./Components/CustomerRegistration/CustomerRegistration";
+import HomePage from "./Components/HomePage/HomePage";
+import PolicySelection from "./Components/PolicySelection/PolicySelection";
+import PolicyView from "./Components/PolicyView/PolicyView";
+import Nominee from "./Components/Nominee/Nominee";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -42,6 +46,24 @@ const router = createBrowserRouter([
       {
         path: "create-account",
         element: <CustomerRegistration />,
+      },
+      {
+        path: "home",
+        element: <HomePage />,
+        children: [
+          {
+            path: "select-policy",
+            element: <PolicySelection />,
+          },
+          {
+            path: "view-policies",
+            element: <PolicyView />,
+          },
+          {
+            path: "edit-nominee",
+            element: <Nominee />,
+          },
+        ],
       },
     ],
   },

@@ -15,6 +15,9 @@
     color: #282c34;
     text-decoration: none;
 }
+.active{
+    color: #0094c6;
+}
 
 .navlink-container .App-link:hover{
     color: #0094c6;

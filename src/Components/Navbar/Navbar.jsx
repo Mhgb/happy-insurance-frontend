@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -17,24 +17,32 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link className="App-link" to={"blog"}>
+          <NavLink activeclassname="active" className="App-link" to={"blog"}>
             Blog
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="App-link" to={"contact-us"}>
+          <NavLink
+            activeclassname="active"
+            className="App-link"
+            to={"contact-us"}
+          >
             Contact
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="App-link" to={"feedback"}>
+          <NavLink
+            activeclassname="active"
+            className="App-link"
+            to={"feedback"}
+          >
             Feedback
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="App-link" to={"sign-in"}>
+          <NavLink activeclassname="active" className="App-link" to={"sign-in"}>
             SignIn
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

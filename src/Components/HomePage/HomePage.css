@@ -1,0 +1,18 @@
+.home-container{
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+}
+.home-options{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-right: 1px solid #333846B3;
+    /* width: 500px; */
+    padding: 10px 30px;
+    /* height: 100%; */
+}
+.home-main-content{
+    width: 100%;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./CustomerRegistration.css";
+import { Link } from "react-router-dom";
 
 function CustomerRegistration({ setComponent }) {
   const url = "http://localhost:8080";
@@ -216,14 +217,14 @@ function CustomerRegistration({ setComponent }) {
         </span>
         <input className="submit-btn" type="submit" value="Register" />
       </form>
-      <footer>
-        <p className="navigate" onClick={() => setComponent("Login")}>
+      <div className="navigation-links-container">
+        <Link className="navigate" to={"../sign-in"}>
           Sign In
-        </p>
-        <p className="navigate" onClick={() => setComponent("LandingPage")}>
+        </Link>
+        <Link className="navigate" to={"../"}>
           Home
-        </p>
-      </footer>
+        </Link>
+      </div>
     </div>
   );
 }
