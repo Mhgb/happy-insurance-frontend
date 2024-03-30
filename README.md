@@ -24,14 +24,14 @@ Hoisted online, Check out and provide feedback: https://happy-insurance-frontend
 
 ## Features
 
-Single Page Web Application
-Login based on roles - user, agent
-Only allows aunthenticated users to access Protected contents.
-CRUD operations can be performed
-Responsive UI -maynot be 100%
-Wep pages are designed using CSS.
-Consume's Api calls from Springboot Backend Application.
-Updates content of the web page dynamically using backend data.
+   - Single Page Web Application
+   - Login based on roles - user, agent
+   - Only allows aunthenticated users to access Protected contents.
+   - CRUD operations can be performed
+   - Responsive UI -maynot be 100%
+   - Wep pages are designed using CSS.
+   - Consume's Api calls from Springboot Backend Application.
+   - Updates content of the web page dynamically using backend data.
 
 
 ### Operations performed in this project:
