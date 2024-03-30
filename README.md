@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Happy Insurance Online
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Full-stack Web Application where you can avail policies for you and your family.
+Hoisted online, Check out and provide feedback: https://happy-insurance-frontend.vercel.app/
 
-## Available Scripts
+## Frontend Frameworks/ Libraries used:
 
-In the project directory, you can run:
+1.React
+2.React-router
 
-### `npm start`
+## Backtend Frameworks/ Libraries used:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. SpringBoot
+2. Spring Data JPA
+3. Embedded Database
+   
+### `languages used:`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Java
+2. SQL
+3. Javascript
+2. CSS
+3. HTML
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Single Page Web Application
+Login based on roles - user, agent
+Only allows aunthenticated users to access Protected contents.
+CRUD operations can be performed
+Responsive UI -maynot be 100%
+Wep pages are designed using CSS.
+Consume's Api calls from Springboot Backend Application.
+Updates content of the web page dynamically using backend data.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Operations performed in this project:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Create an account
+      -Two Roles: User and Agent
+2. Login using User ID - Aunthentication is performed
+3. Based on user profile (User or Agent) home page content will be shown.
+4. Delete an account (deactivate account)
+5. Update Nominee details of the user
+6. Avail a new Policy from the list of all available policies.
+7. View all the purchased policies
+8. Only Agent have access to
+      - Create a new policy
+      - Delete an already existing policy created by him/her.
+9. Actaul Data's are stored in database through backend Springboot application.
+10. Dats's are fetched from db to load contents dynamically.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-mhgb ✌️
