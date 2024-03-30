@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import { URL } from "../../utils/Constants";
 import "./PolicySelection.css";
 
-function PolicySelection({ setComponent }) {
-  const url = "http://localhost:8080";
-
+function PolicySelection() {
   const [policies, setPolicies] = useState([]);
   const [policyList, setPolicyList] = useState([]);
   const [currentPolicy, setCurrentPolicy] = useState("");
@@ -13,18 +12,22 @@ function PolicySelection({ setComponent }) {
   const [sumAssured, setSumAssured] = useState("");
   const [premium, setPremium] = useState("");
   const [term, setTerm] = useState("");
+  const [insurer, setInsurer] = useState("myself");
 
   useEffect(() => {
     console.log("Loading Policies from Database");
 
     const getPolicies = async () => {
-      let result = await fetch(url + "/policies");
+      let result = await fetch(URL + "/all-policies");
       let response = await result.json();
       setPolicies(response);
-      // setPolicyList(response[Object.keys(policies).at(0)]);
     };
     getPolicies();
   }, []);
+
+  useEffect(() => {
+    setPolicyList(policies[Object.keys(policies).at(0)]);
+  }, [policies]);
 
   useEffect(() => {
     console.log("selected policy type: " + type + "policy title: " + title);
@@ -49,7 +52,7 @@ function PolicySelection({ setComponent }) {
   function ConfirmPolicy() {
     console.log(currentPolicy);
     if (currentPolicy !== "") {
-      fetch(url + "/confirmPolicy", {
+      fetch(URL + "/confirm-policy", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -58,6 +61,7 @@ function PolicySelection({ setComponent }) {
         body: JSON.stringify({
           userId: sessionStorage.getItem("userId"),
           policyId: currentPolicy["policyId"],
+          insurer: insurer,
         }),
       })
         .then((result) => result.json())
@@ -68,6 +72,7 @@ function PolicySelection({ setComponent }) {
           setPremium("");
           setTerm("");
           setCurrentPolicy("");
+          setInsurer("myself");
           alert("Thank you for Trusting us to insure you. You are insured now");
           console.log(response);
         });
@@ -82,8 +87,9 @@ function PolicySelection({ setComponent }) {
           <h3>Policy Type</h3>
           <ul className="policy-list">
             {Object.keys(policies).length ? (
-              Object.keys(policies).map((type) => (
+              Object.keys(policies).map((type, index) => (
                 <li
+                  key={index}
                   className="options"
                   onClick={(e) => {
                     setType(e.target.innerHTML);
@@ -106,52 +112,19 @@ function PolicySelection({ setComponent }) {
         <div className="policy-type">
           <h3>Policy Title</h3>
           <ul className="policy-list">
-            {policyList.map((policy) => {
-              return (
-                <li
-                  className="options"
-                  onClick={(e) => setTitle(e.target.innerHTML)}
-                >
-                  {policy.policyTitle}
-                </li>
-              );
-            })}
+            {policyList &&
+              policyList.map((policy) => {
+                return (
+                  <li
+                    className="options"
+                    onClick={(e) => setTitle(e.target.innerHTML)}
+                  >
+                    {policy.policyTitle}
+                  </li>
+                );
+              })}
           </ul>
         </div>
-        {/* <span className="policy-elements">
-          <label htmlFor="policyType">Policy Type</label>
-          <select
-            id="policyType"
-            value={type}
-            onChange={(e) => {
-              setType(e.target.value);
-              setTitle("");
-              setSumAssured("");
-              setPremium("");
-              setTerm("");
-              setCurrentPolicy("");
-              UpdatePolicyList(e);
-            }}
-          >
-            <option value="">--Select an option--</option>
-            {Object.keys(policies).map((type) => (
-              <option value={type}>{type}</option>
-            ))}
-          </select>
-        </span>
-        <span className="policy-elements">
-          <label htmlFor="policyTitle">Policy Title</label>
-          <select
-            id="policyTitle"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          >
-            <option value="">--Select an option--</option>
-            {policyList.map((policy) => (
-              <option value={policy.policyType}>{policy.policyType}</option>
-            ))}
-          </select>
-        </span> */}
         <br />
         <span className="policy-details">
           <label htmlFor="sumAssured">SumAssured</label>
@@ -178,6 +151,21 @@ function PolicySelection({ setComponent }) {
         <span className="policy-details">
           <label htmlFor="term">Term</label>
           <input type="text" id="term" maxLength={50} value={term} readOnly />
+        </span>
+        <br />
+        <span className="policy-details">
+          <label htmlFor="insurer">Insurer</label>
+          <select
+            id="insurer"
+            value={insurer}
+            onChange={(e) => setInsurer(e.target.value)}
+          >
+            <option value="myself">Myself</option>
+            <option value="father">Father</option>
+            <option value="mother">Mother</option>
+            <option value="wife">Wife</option>
+            <option value="children">Children</option>
+          </select>
         </span>
         <br />
         <span id="confirm-btn">

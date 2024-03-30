@@ -1,28 +1,33 @@
 .feedback-container{
     display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 50px;
 }
 
 .feedback,.tips{
-    background-color: #fff;
+    background-color: #f8f7f4;
     box-shadow: 0 6px 12px 0 rgba(51,56,70,.1);
     padding: 10px 30px;
 }
 .feedback{
     display: flex;
     flex-direction: column;
+    width: 360px;
     gap: 1rem;
 }
 
-textarea{
+.feedback textarea{
+    background-color: #fff;
     resize: none;
 }
 
 .tips{
     font-size: medium;
     text-align: left;
-    width: 400px;
+    width: 360px;
     height: 250px;
 }
 
@@ -33,3 +38,38 @@ textarea{
     color: #333846B3;
 }
 
+.feedback-cards-container{
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 360px;
+    transition: 1s;
+    border-radius: 5px;
+    background-color: #BFEA7C;
+}
+
+.view-feedbacks-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f7f4;
+    padding: 50px 0;
+}
+
+.feedback-cards{
+    white-space: nowrap;
+}
+.feedback-card{
+    display: inline-block;
+    height: 300px;
+    width: 100%;
+}
+
+.no-feedbacks{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

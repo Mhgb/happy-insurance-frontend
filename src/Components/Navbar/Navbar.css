@@ -1,14 +1,32 @@
 .App-header {
-    background-color: #fff;
     text-align: left;
-    padding-left: 10px;
-    padding-right: 30px;
-    /* min-height: 100vh; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: calc(10px + 2vmin);
     color: #282c34;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #C4C197;
+    z-index: 1;
+}
+.App-header div{
+    transition: 1s;
+}
+.App-header h1{
+    font-size: 36px;
+    line-height: 54px;
+    font-weight: lighter;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+.App-header h1 span{
+    font-weight: bold;
+    padding: 3px 10px;
+    background-color: #282c34;
+    color: #fff;
 }
 
 .App-link {
@@ -25,4 +43,42 @@
 .navlink-container{
     display: flex;
     gap: 1rem;
+    margin-right: 20px;
+}
+.greeting{
+    padding-bottom: 10px;
+}
+.menu-icon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    display: none;
+}
+
+@media (max-width: 480px){
+    .navlink-container{
+        /* display: none; */
+        flex-direction: column;
+        width: 100%;
+    }
+    .close{
+       display: none;
+    }
+
+    .App-header{
+        flex-direction: column;
+        /* text-align: center; */
+        align-items: start;
+    }
+    .menu{
+        display: flex;
+    }
+    .navlink-container li{
+        width: 100%;
+    }
+    .menu-icon{
+        display: block;
+    }
 }

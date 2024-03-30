@@ -14,12 +14,16 @@ import HomePage from "./Components/HomePage/HomePage";
 import PolicySelection from "./Components/PolicySelection/PolicySelection";
 import PolicyView from "./Components/PolicyView/PolicyView";
 import Nominee from "./Components/Nominee/Nominee";
+import ProtectedRoute from "./utils/ProtectedRoute";
+import AddPolicy from "./Components/CRUDPolicy/AddPolicy";
+import EditPolicy from "./Components/CRUDPolicy/EditPolicy";
+import DeletePolicy from "./Components/CRUDPolicy/DeletePolicy";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
   {
-    path: "/happy-insurance",
+    path: "",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
@@ -48,20 +52,37 @@ const router = createBrowserRouter([
         element: <CustomerRegistration />,
       },
       {
-        path: "home",
-        element: <HomePage />,
+        element: <ProtectedRoute />,
         children: [
           {
-            path: "select-policy",
-            element: <PolicySelection />,
-          },
-          {
-            path: "view-policies",
-            element: <PolicyView />,
-          },
-          {
-            path: "edit-nominee",
-            element: <Nominee />,
+            path: "home",
+            element: <HomePage />,
+            children: [
+              {
+                path: "select-policy",
+                element: <PolicySelection />,
+              },
+              {
+                path: "view-policies",
+                element: <PolicyView />,
+              },
+              {
+                path: "edit-nominee",
+                element: <Nominee />,
+              },
+              {
+                path: "add-policy",
+                element: <AddPolicy />,
+              },
+              {
+                path: "edit-policy",
+                element: <EditPolicy />,
+              },
+              {
+                path: "delete-policy",
+                element: <DeletePolicy />,
+              },
+            ],
           },
         ],
       },
@@ -70,7 +91,7 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  // <React.StrictMode>
+  <RouterProvider router={router} />
+  // </React.StrictMode>
 );

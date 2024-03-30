@@ -1,17 +1,19 @@
 import { useState } from "react";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { URL } from "../../utils/Constants";
 import "./Login.css";
-import { Link, useNavigate, Navigate } from "react-router-dom";
 
-function Login({ setComponent }) {
+function Login() {
+  const context = useOutletContext();
+  const navigate = useNavigate();
+
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, toggleErrorMsg] = useState(false);
 
-  const navigate = useNavigate();
-
   function handleLogin() {
     if (userId !== "" && password !== "") {
-      fetch("http://localhost:8080/login", {
+      fetch(URL + "/login", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -28,8 +30,10 @@ function Login({ setComponent }) {
 
           if (responseData["validCustomer"] === "true") {
             sessionStorage.setItem("userId", responseData["userId"]);
-            sessionStorage.setItem("username", responseData["username"]);
-            navigate("/happy-insurance/home");
+            sessionStorage.setItem("isAdmin", responseData["isAdmin"]);
+
+            context.setUser(responseData["username"]);
+            navigate("/home");
           } else {
             toggleErrorMsg(true);
           }
@@ -46,7 +50,7 @@ function Login({ setComponent }) {
     <div className="login-container">
       <div className="login-form">
         <span>
-          <h1>Login</h1>
+          <h1>Log In</h1>
         </span>
         {errorMsg && (
           <span id="errorMsg">
@@ -67,7 +71,7 @@ function Login({ setComponent }) {
         <span className="form-elements">
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             id="password"
             maxLength={50}
             value={password}
@@ -77,7 +81,7 @@ function Login({ setComponent }) {
         </span>
         <input
           type="submit"
-          value="Login"
+          value="Log In"
           onClick={handleLogin}
           className="submit-btn"
         />

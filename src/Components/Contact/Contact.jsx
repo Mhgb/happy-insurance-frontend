@@ -1,6 +1,6 @@
 import "./Contact.css";
 
-function Contact({ setComponent }) {
+function Contact() {
   return (
     <div>
       <div className="contact-us">
@@ -50,11 +50,6 @@ function Contact({ setComponent }) {
           </p>
         </div>
       </div>
-      <footer>
-        <p className="navigate" onClick={() => setComponent("LandingPage")}>
-          Back
-        </p>
-      </footer>
     </div>
   );
 }

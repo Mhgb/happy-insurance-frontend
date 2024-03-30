@@ -1,0 +1,114 @@
+blog-container{
+    text-align: left;
+}
+.blogs{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.blog-card{
+    border: 1px solid #333846B3;
+    display: flex;
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px 0 rgba(51,56,70,.1);
+}
+.blog-card img{
+    padding-left: 20px;
+}
+
+.blog-card div{
+    text-align: left;
+    padding: 15px;
+    overflow-wrap: break-word;
+}
+
+.read-more-btn{
+    text-decoration: underline;
+    font-size: 18px;
+    background: inherit;
+    border: none;
+    outline: 0;
+    color: #0094c6;
+}
+
+.blog-card-1{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 340px;
+    padding: 20px;
+    background-color: #f8f7f4;
+    box-shadow: 0 6px 12px 0 rgba(51,56,70,.1);
+}
+
+.more-posts-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 10px 0 100px 0;
+
+}
+
+.recent-posts-coontainer{
+    background-color: #f8f7f4;
+    padding: 10px 0 100px 0;
+}
+.post-heading{
+    padding: 30px;
+    text-align: left;
+    font-size: 36px;
+    color: #0094c6;
+}
+
+.featured-post-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 100px 0;
+}
+
+.featured-post-container .blog-card{
+    width: 800px;
+    border:none;
+    box-shadow: none;
+}
+
+.featured-label{
+    font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #0094c6;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.featured-post-container button{
+    border: 1px solid #0094c6;
+    padding: 12px 27px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@media (max-width:480px){
+    .blog-card{
+        flex-direction: column;
+        width:320px;
+        height: 600px;
+    }
+    .blog-card img{
+        height: 300px;
+        width: 200px;
+    }
+}

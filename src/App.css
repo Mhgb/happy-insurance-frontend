@@ -3,8 +3,13 @@
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  background-color: #f2f4f3;
-  min-height: 100vh;
+  background-color: #fff;
+  min-width: 100vw;
+  height: 100%;
+}
+
+.content{
+  width: 100%;
 }
 
 h1{
@@ -30,15 +35,9 @@ h1{
   list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 input,textarea{
   border: 1px solid #333846B3;
-  background-color: #f2f4f3;
+  background-color: #fff;
   border-radius: 5px;
   padding: 10px 5px;
   outline:0;
@@ -52,17 +51,16 @@ input,textarea{
   border-radius: 15px;
   cursor: pointer;
   margin: auto;
+  font-size: 16px;
 }
 
 .submit-btn:hover{
   opacity: 0.9;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input::placeholder{
+  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+}
+textarea::placeholder{
+  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
 }
