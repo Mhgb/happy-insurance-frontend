@@ -12,7 +12,6 @@ function HomePage() {
 
   const [navbar, toggleNavbar] = useState(false);
   const [policyEditing, togglePolicyEditing] = useState(false);
-  const [displayMenuIcon, toggleDisplayMenuIcon] = useState(true);
 
   function handleDeactivate() {
     fetch(URL + "/deactivate-account/" + userId, {
@@ -31,7 +30,6 @@ function HomePage() {
           <img
             src={menuIcon}
             alt="menu"
-            // className="menu-icon"
             id="home-menu-icon"
             onClick={() => toggleNavbar((prev) => !prev)}
           />

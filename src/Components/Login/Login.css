@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 100px;
+    margin-top: 100px;
+    height: 100%;
 }
 .login-form{
     display: flex;
@@ -12,7 +13,7 @@
     gap: 1rem;
     background-color: #f8f7f4;
     width: 400px;
-    padding: 20px 30px;
+    padding: 20px 10px;
     box-shadow: 0 6px 12px 0 rgba(51,56,70,.1);
 }
 
@@ -22,4 +23,10 @@
     margin: auto;
     padding: 10px 5px;
     background-color: #FF9F9F;
+}
+
+@media (max-width:480px) {
+    .login-form{
+        width: 355px;
+    }
 }

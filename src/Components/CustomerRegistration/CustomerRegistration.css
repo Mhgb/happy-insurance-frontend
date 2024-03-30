@@ -8,7 +8,8 @@
 }
 .field-container{
     width: 400px;
-    padding: 20px 30px;
+    min-width: 360px;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,9 +24,12 @@
     justify-content: center;
     align-items: flex-start;
 }
+.form-elements label{
+    margin-bottom: 5px;
+}
 
 .form-elements input{
-    width: 100%;
+    width: 95%;
 }
 
 label span{
@@ -40,4 +44,13 @@ label span{
 #type{
     font-size: medium;
     padding: 5px 10px ;
+}
+
+@media (max-width:480px) {
+    .field-container{
+        width: 360px;
+    }
+    .form-elements input{
+        width: 90%;
+    }
 }

@@ -1,18 +1,13 @@
 .nominee-container{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin-top: 15px;
     gap: 1.5rem;
-}
-
-.nominee-elements{
     text-align: left;
-    display: flex;
-    flex-direction: column;
 }
 
-.nominee-elements input{
-    background-color: #fff;
+#nominee-relationship, #nominee-name{
+    width: 250px;
 }

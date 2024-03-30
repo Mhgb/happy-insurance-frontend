@@ -11,9 +11,10 @@ function Blog() {
   return (
     <div className="blog-container">
       <div className="featured-post">
+        <h2 className="post-heading">Featured Blogs</h2>
         <div className="featured-post-container">
           {FeaturedPosts.map((blog) => (
-            <BlogCard featured="true" blog={blog} />
+            <BlogCard key={blog.id} featured="true" blog={blog} />
           ))}
         </div>
       </div>
@@ -33,9 +34,6 @@ function Blog() {
           ))}
         </div>
       </div>
-      <a href="https://www.tickertape.in/blog/how-to-invest/insurance/">
-        Ticker tape- Acticles about Insurance
-      </a>
     </div>
   );
 }

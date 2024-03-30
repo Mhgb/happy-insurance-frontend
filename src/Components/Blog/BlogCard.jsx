@@ -4,7 +4,7 @@ export default function BlogCard({ featured, blog }) {
   return (
     <div className="blog-card">
       <img src={image1} alt="not available" />
-      <div>
+      <div className="blog-content">
         {featured && <span className="featured-label">Featured</span>}
         <h2>{blog.topic}</h2>
         <p>{blog.content}</p>

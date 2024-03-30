@@ -23,13 +23,13 @@ export default function DeletePolicy() {
     fetch(URL + "/delete-policy?policy_id=" + event.target.value, {
       method: "DELETE",
     })
-      .then((result) => console.log(result))
+      .then((result) => fetchPolicyDetails())
       .catch((error) => console.log(error));
-    fetchPolicyDetails(); //To update policy list after deletion
+    //To update policy list after deletion
   }
 
   return (
-    <div>
+    <div className="delete-policy-container">
       <h2>Policies owned by you</h2>
       {/* <button onClick={displayPolicy}>display policies</button> */}
       <div>
@@ -74,10 +74,6 @@ export default function DeletePolicy() {
         ) : (
           <div>No Policies owned by you</div>
         )}
-        {/* {policies.length > 0 &&
-          policies.map((customePolicy) => {
-            return <PolicyCard isAdmin="true" customePolicy={customePolicy} />;
-          })} */}
       </div>
     </div>
   );

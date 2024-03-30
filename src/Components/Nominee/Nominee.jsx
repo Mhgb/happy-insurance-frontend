@@ -44,21 +44,22 @@ function Nominee() {
 
   return (
     <div className="nominee-container">
-      <span className="nominee-elements">
+      <h2>Nominee Details</h2>
+      <span className="form-elements">
         <label htmlFor="name">Nominee Name</label>
         <input
           type="text"
-          id="name"
+          id="nominee-name"
           maxLength={50}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </span>
-      <span className="nominee-elements">
+      <span className="form-elements">
         <label htmlFor="relationship">Relationship with customer</label>
         <input
           type="text"
-          id="relationship"
+          id="nominee-relationship"
           maxLength={50}
           value={relationship}
           onChange={(e) => setRelationship(e.target.value)}

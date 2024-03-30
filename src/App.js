@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import heartIcon from "./images/heart.png";
 import Navbar from "./Components/Navbar/Navbar";
 import "./App.css";
 
@@ -17,7 +18,9 @@ function App() {
         <Outlet context={{ user, setUser, loginUser }} />
       </div>
       <footer>
-        <p>@Happy Insurance Online ❤</p>
+        <p>
+          @Happy Insurance Online <img id="heart" src={heartIcon} alt="❤" />
+        </p>
       </footer>
     </div>
   );

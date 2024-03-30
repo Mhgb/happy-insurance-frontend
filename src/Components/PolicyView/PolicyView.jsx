@@ -29,7 +29,7 @@ function PolicyView() {
 
   return (
     <div className="view-container">
-      <h3>View Your Policies</h3>
+      <h2>View Your Policies</h2>
       <div className="policy-cards-container">
         {yourPolicies.length > 0 ? (
           yourPolicies.map((customePolicy) => (
@@ -41,6 +41,7 @@ function PolicyView() {
       </div>
       <Pagination
         totalPages={totalPages}
+        currentPage={currentPage}
         updateCurrentPage={updateCurrentPage}
       />
     </div>

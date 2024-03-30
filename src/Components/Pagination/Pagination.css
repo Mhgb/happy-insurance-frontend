@@ -1,11 +1,17 @@
 .page-no{
-    border: 1px solid #333;
+    border: 1px solid #282C34;
     padding: 3px 7px;
     background-color: #fff;
     margin: 30px 5px;
     cursor: pointer;
+    transition: all .2s ease-out;
 }
-
+/* 
 .page-no:hover{
     background-color: #0094c6;
+} */
+
+.active-page{
+    color: #fff;
+    background-color: #282C34;
 }

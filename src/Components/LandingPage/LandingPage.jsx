@@ -11,9 +11,7 @@ function LandingPage() {
     <div className="landing-container">
       <div className="greeting">
         <h2>We care about your health.</h2>
-        <p>
-          <i>Protect your loved ones with the best insurance coverage.</i>
-        </p>
+        <p>Protect your loved ones with the best insurance coverage.</p>
       </div>
       <div className="register-container">
         <img src={Image} alt="not available" />

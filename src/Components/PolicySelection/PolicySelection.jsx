@@ -6,6 +6,8 @@ function PolicySelection() {
   const [policies, setPolicies] = useState([]);
   const [policyList, setPolicyList] = useState([]);
   const [currentPolicy, setCurrentPolicy] = useState("");
+  const [activeType, setActiveType] = useState("");
+  const [activeTitle, setActiveTitle] = useState("");
 
   const [type, setType] = useState("");
   const [title, setTitle] = useState("");
@@ -30,7 +32,7 @@ function PolicySelection() {
   }, [policies]);
 
   useEffect(() => {
-    console.log("selected policy type: " + type + "policy title: " + title);
+    // console.log("selected policy type: " + type + "policy title: " + title);
 
     if (type !== "" && title !== "") {
       policyList.forEach((policy) => {
@@ -46,7 +48,7 @@ function PolicySelection() {
 
   function UpdatePolicyList(event) {
     setPolicyList(policies[event.target.innerHTML]);
-    console.log(policyList);
+    // console.log(policyList);
   }
 
   function ConfirmPolicy() {
@@ -72,6 +74,8 @@ function PolicySelection() {
           setPremium("");
           setTerm("");
           setCurrentPolicy("");
+          setActiveTitle("");
+          setActiveType("");
           setInsurer("myself");
           alert("Thank you for Trusting us to insure you. You are insured now");
           console.log(response);
@@ -90,8 +94,11 @@ function PolicySelection() {
               Object.keys(policies).map((type, index) => (
                 <li
                   key={index}
-                  className="options"
+                  className={
+                    index === activeType ? "active-div options" : "options"
+                  }
                   onClick={(e) => {
+                    setActiveType(index);
                     setType(e.target.innerHTML);
                     setTitle("");
                     setSumAssured("");
@@ -113,11 +120,17 @@ function PolicySelection() {
           <h3>Policy Title</h3>
           <ul className="policy-list">
             {policyList &&
-              policyList.map((policy) => {
+              policyList.map((policy, index) => {
                 return (
                   <li
-                    className="options"
-                    onClick={(e) => setTitle(e.target.innerHTML)}
+                    key={index}
+                    className={
+                      activeTitle === index ? "active-div options" : "options"
+                    }
+                    onClick={(e) => {
+                      setActiveTitle(index);
+                      setTitle(e.target.innerHTML);
+                    }}
                   >
                     {policy.policyTitle}
                   </li>
@@ -168,8 +181,12 @@ function PolicySelection() {
           </select>
         </span>
         <br />
-        <span id="confirm-btn">
-          <button className="submit-btn" onClick={ConfirmPolicy}>
+        <span>
+          <button
+            id="confirm-btn"
+            className="submit-btn"
+            onClick={ConfirmPolicy}
+          >
             Confirm
           </button>
         </span>

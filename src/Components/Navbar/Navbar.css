@@ -11,6 +11,7 @@
     width: 100%;
     background-color: #C4C197;
     z-index: 1;
+    transition: 1s;
 }
 .App-header div{
     transition: 1s;
