@@ -1,6 +1,11 @@
 .policy-tbl{
     margin: 20px;
+    border: 0;
     background-color: #f8f7f4;
+}
+.policy-tbl thead tr{
+    background-color: #0094C6;
+    color: #fff;
 }
 .policy-tbl th,td{
     padding: 20px 40px;
@@ -15,4 +20,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.delete-policy-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#policy-delete-btn{
+    border: 1px solid #FA7070;
+    padding: 5px 15px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: 0.6s;
+    color: #fff;
+    background-color: #FA7070;
 }

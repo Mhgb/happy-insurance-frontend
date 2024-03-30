@@ -31,17 +31,3 @@ p span{
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
 }
-
-#policy-delete-btn{
-    background-color: inherit;
-    border: 1px solid #FA7070;
-    padding: 5px 15px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    transition: 0.6s;
-}
-
-#policy-delete-btn:hover{
-    color: #fff;
-    background-color: #FA7070;
-}

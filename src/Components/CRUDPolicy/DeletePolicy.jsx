@@ -12,7 +12,6 @@ export default function DeletePolicy() {
 
   function fetchPolicyDetails() {
     fetch(URL + "/policies?userId=" + userId)
-      // fetch(URL + "/retrieve-policies")
       .then((result) => result.json())
       .then((rspData) => updatePolicies(rspData))
       .catch((error) => console.log(error));
@@ -31,7 +30,6 @@ export default function DeletePolicy() {
   return (
     <div className="delete-policy-container">
       <h2>Policies owned by you</h2>
-      {/* <button onClick={displayPolicy}>display policies</button> */}
       <div>
         {policies && policies.length > 0 ? (
           <table className="policy-tbl">

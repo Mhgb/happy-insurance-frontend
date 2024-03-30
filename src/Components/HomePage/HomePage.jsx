@@ -67,7 +67,7 @@ function HomePage() {
                   }
                 >
                   <NavLink to={"add-policy"} className="navigate">
-                    Add Policy
+                    New Policy
                   </NavLink>
                   <NavLink to={"delete-policy"} className="navigate">
                     Delete Policy
