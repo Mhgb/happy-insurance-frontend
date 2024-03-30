@@ -1,5 +1,5 @@
-export const URL = "http://localhost:8080";
-// export const URL = "https://happy-insurance-latest.onrender.com";
+// export const URL = "http://localhost:8080";
+export const URL = "https://happy-insurance-latest.onrender.com";
 
 export const insuranceInfo = [
   {
