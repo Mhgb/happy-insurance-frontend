@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 1.5rem;
-    background-color: #fff;
+    background-color: #f8f7f4;
     box-shadow: 0 6px 12px 0 rgba(51,56,70,.1);
 }
 
@@ -35,4 +35,9 @@ label span{
 .errMsg{
     font-size: small;
     color: #E21818;
+}
+
+#type{
+    font-size: medium;
+    padding: 5px 10px ;
 }

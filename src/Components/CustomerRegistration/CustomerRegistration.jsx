@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./CustomerRegistration.css";
+import { URL } from "../../utils/Constants";
 import { Link } from "react-router-dom";
+import "./CustomerRegistration.css";
 
-function CustomerRegistration({ setComponent }) {
-  const url = "http://localhost:8080";
+function CustomerRegistration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +11,7 @@ function CustomerRegistration({ setComponent }) {
   const [nominee, setNominee] = useState("");
   const [relationship, setRelationship] = useState("");
   const [contact, setContact] = useState("");
+  const [type, setType] = useState("user");
 
   const [nameErrorMsg, setNameErrorMsg] = useState("");
   const [emailErrorMsg, setEmailErrorMsg] = useState("");
@@ -31,7 +32,7 @@ function CustomerRegistration({ setComponent }) {
       password !== "" &&
       relationship !== ""
     ) {
-      fetch(url + "/RegisterCustomer", {
+      fetch(URL + "/create-account", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -45,6 +46,7 @@ function CustomerRegistration({ setComponent }) {
           nominee: nominee,
           relationship: relationship,
           contact: contact,
+          type: type,
         }),
       })
         .then((result) => result.json())
@@ -56,9 +58,7 @@ function CustomerRegistration({ setComponent }) {
                 "\nUse customer Id for login"
             );
 
-            console.log(responseData["customerId"]);
-            console.log(responseData["customerName"]);
-            console.log(responseData["email"]);
+            console.log(responseData);
           }
         });
     } else {
@@ -214,6 +214,17 @@ function CustomerRegistration({ setComponent }) {
           <i id="contactErrorMsg" className="errMsg">
             {contactErrorMsg}
           </i>
+        </span>
+        <span className="form-elements">
+          <label htmlFor="type">Account Type</label>
+          <select
+            id="type"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+          >
+            <option value="user">User</option>
+            <option value="agent">Agent</option>
+          </select>
         </span>
         <input className="submit-btn" type="submit" value="Register" />
       </form>

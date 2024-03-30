@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { URL } from "../../utils/Constants";
 import "./Nominee.css";
 
-function Nominee({ setComponent }) {
-  const url = "http://localhost:8080";
+function Nominee() {
   const currentCustomer = sessionStorage.getItem("userId");
 
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ function Nominee({ setComponent }) {
 
   useEffect(() => {
     const getNomineeDetails = async () => {
-      let result = await fetch(url + "/customer-nominee/" + currentCustomer, {
+      let result = await fetch(URL + "/customer-nominee/" + currentCustomer, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -27,7 +27,7 @@ function Nominee({ setComponent }) {
   }, []);
 
   const handleSubmit = async () => {
-    let response = await fetch(url + "/update-nominee-details", {
+    let response = await fetch(URL + "/update-nominee", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -39,7 +39,6 @@ function Nominee({ setComponent }) {
         relationship: relationship,
       }),
     }).then((result) => result.json());
-    // let response = await result.json();
     console.log(response);
   };
 

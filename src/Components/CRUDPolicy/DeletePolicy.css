@@ -1,0 +1,18 @@
+.policy-tbl{
+    margin: 20px;
+    background-color: #f8f7f4;
+}
+.policy-tbl th,td{
+    padding: 20px 40px;
+    text-align: left;
+    border-bottom: 1px solid #000;
+}
+.policy-tbl td{
+    border-bottom: 1px solid #000;
+}
+
+.add-policy-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

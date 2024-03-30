@@ -1,12 +1,16 @@
 .selection-container{
     padding: 0px 40px;
     text-align: left;
+    width: 70%;
+}
+.policy-type{
+        /* min-width: 100%; */
 }
 .policy-list{
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    border: 1px solid #333846B3;
+    border: 1.5px solid #333846B3;
     padding: 30px 20px;
     border-radius: 10px;
     list-style: none;
@@ -15,7 +19,8 @@
 .options{
     cursor: pointer;
     padding: 5px 10px;
-    background-color: #fff;
+    background-color: #FFAF45;
+    font-size: large;
 }
 
 .policy-details label{
@@ -28,7 +33,12 @@
     border: none;
 }
 
+#insurer{
+    font-size: medium;
+    padding: 5px 10px;
+}
+
 #confirm-btn{
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
 }
