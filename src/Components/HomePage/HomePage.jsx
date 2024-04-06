@@ -42,7 +42,7 @@ function HomePage() {
             </NavLink>
             <br />
             <NavLink className="navigate" to={"view-policies"}>
-              View Your Polices
+              Purchased policies
             </NavLink>
             <br />
             <NavLink className="navigate" to={"edit-nominee"}>

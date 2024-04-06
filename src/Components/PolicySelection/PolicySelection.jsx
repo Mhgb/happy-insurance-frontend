@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { URL } from "../../utils/Constants";
 import "./PolicySelection.css";
+import DialogBox from "../DialogBox/DialogBox";
 
 function PolicySelection() {
+  const [dialogBox, toggleDialogBox] = useState(false);
+  const dialogMsg = "Are you sure you want to confirm policy ?";
+
   const [policies, setPolicies] = useState([]);
   const [policyList, setPolicyList] = useState([]);
   const [currentPolicy, setCurrentPolicy] = useState("");
@@ -51,7 +55,7 @@ function PolicySelection() {
     // console.log(policyList);
   }
 
-  function ConfirmPolicy() {
+  const ConfirmPolicy = () => {
     console.log(currentPolicy);
     if (currentPolicy !== "") {
       fetch(URL + "/confirm-policy", {
@@ -81,7 +85,7 @@ function PolicySelection() {
           console.log(response);
         });
     }
-  }
+  };
 
   return (
     <div className="selection-container">
@@ -185,12 +189,21 @@ function PolicySelection() {
           <button
             id="confirm-btn"
             className="submit-btn"
-            onClick={ConfirmPolicy}
+            onClick={() => {
+              if (currentPolicy !== "") toggleDialogBox(true);
+            }}
           >
             Confirm
           </button>
         </span>
       </div>
+      {dialogBox && (
+        <DialogBox
+          message={dialogMsg}
+          executeFunc={ConfirmPolicy}
+          toggleDialogBox={toggleDialogBox}
+        />
+      )}
     </div>
   );
 }

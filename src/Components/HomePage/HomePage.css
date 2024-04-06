@@ -2,11 +2,25 @@
     display: flex;
     min-height: calc(100vh - 191.5px);
     width: 100vw;
+    max-width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-color: #333846B3 #fff;
+    scrollbar-width: thin;
 }
 .home-content-left{
     position: sticky;
     border-right: 1px solid #333846B3;
     background-color: #f8f7f4;
+    transition: left .3s ease;
+}
+.home-main-content, .home-main-content:after, .home-content-left, .home-content-left *
+{
+	-webkit-transition: all 600ms ease;
+	-moz-transition: all 600ms ease;
+	-ms-transition: all 600ms ease;
+	-o-transition: all 600ms ease;
+	transition: all 600ms ease;
 }
 .home-options{
     text-align: left;
@@ -19,6 +33,7 @@
 .home-main-content{
     width: 100%;
     height: 100%;
+    height: calc(100% - 30px);
 }
 
 .home-greeting{
@@ -87,6 +102,7 @@
     align-items: center;
     padding: 0;
     list-style: none;
+    text-align: left;
     background-color: #fff;
 }
 .drop-down-navigate .navigate{

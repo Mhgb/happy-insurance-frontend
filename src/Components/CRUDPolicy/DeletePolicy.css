@@ -1,7 +1,8 @@
 .policy-tbl{
     margin: 20px;
     border: 0;
-    background-color: #f8f7f4;
+    border-spacing: 0;
+    box-shadow: 0 6px 12px 0 rgba(51,56,70,.5);
 }
 .policy-tbl thead tr{
     background-color: #0094C6;
@@ -10,10 +11,6 @@
 .policy-tbl th,td{
     padding: 20px 40px;
     text-align: left;
-    border-bottom: 1px solid #000;
-}
-.policy-tbl td{
-    border-bottom: 1px solid #000;
 }
 
 .add-policy-container{
@@ -25,14 +22,15 @@
     margin-top: 50px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-#policy-delete-btn{
-    border: 1px solid #FA7070;
-    padding: 5px 15px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    transition: 0.6s;
-    color: #fff;
-    background-color: #FA7070;
+#trash-icon{
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    transition: 0.5s;
+}
+#trash-icon:hover{
+    transform: rotate(15deg);
 }

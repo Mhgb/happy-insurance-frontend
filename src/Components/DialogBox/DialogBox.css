@@ -1,0 +1,57 @@
+.overlay{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+  #dialog-box{
+    width: 250px;
+    height: 100px;
+    color: #000;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    opacity: 1;
+  }
+  .dialog-box h3{
+    margin-top: 0;
+  }
+  
+  #dialog-footer-btn-yes{
+    background-color: #282C34;
+    
+  }
+  
+  #dialog-footer-btn-no{
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .dialog-footer-btn, .open-btn{
+    color: #FFF;
+    border: none;
+    padding: 5px 15px;
+    margin-left: 10px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .open-btn{
+    background: #000;
+    margin:  0 auto;
+  }

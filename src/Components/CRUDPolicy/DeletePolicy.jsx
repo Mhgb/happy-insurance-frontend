@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import { URL } from "../../utils/Constants";
+import trashIcon from "../../images/trash-bin.png";
+import DialogBox from "../DialogBox/DialogBox";
 import "./DeletePolicy.css";
 
 export default function DeletePolicy() {
   const userId = sessionStorage.getItem("userId");
   const [policies, updatePolicies] = useState([]);
+  const [deletePolicyId, updateDeletePolicyId] = useState();
+  const [dialogBox, toggleDialogBox] = useState(false);
+  const dialogMsg = "Are you sure you want to Delete policy ?";
 
   useEffect(() => {
     fetchPolicyDetails();
@@ -17,9 +22,9 @@ export default function DeletePolicy() {
       .catch((error) => console.log(error));
   }
 
-  function handleDeletePolicy(event) {
-    console.log(event.target.value);
-    fetch(URL + "/delete-policy?policy_id=" + event.target.value, {
+  function handleDeletePolicy(policyId) {
+    console.log(policyId);
+    fetch(URL + "/delete-policy?policy_id=" + policyId, {
       method: "DELETE",
     })
       .then((result) => fetchPolicyDetails())
@@ -48,7 +53,7 @@ export default function DeletePolicy() {
               {policies.length > 0 &&
                 policies.map((policy) => {
                   return (
-                    <tr key={policy.policyId}>
+                    <tr key={policy.policyId} className="rows">
                       <td>{policy.policyId} </td>
                       <td>{policy.policyType} </td>
                       <td>{policy.policyTitle} </td>
@@ -56,13 +61,15 @@ export default function DeletePolicy() {
                       <td>{policy.sumAssured} </td>
                       <td>{policy.term} </td>
                       <td>
-                        <button
-                          id="policy-delete-btn"
-                          value={policy.policyId}
-                          onClick={handleDeletePolicy}
-                        >
-                          Delete
-                        </button>
+                        <img
+                          id="trash-icon"
+                          src={trashIcon}
+                          alt="delete"
+                          onClick={() => {
+                            updateDeletePolicyId(policy.policyId);
+                            toggleDialogBox(true);
+                          }}
+                        />
                       </td>
                     </tr>
                   );
@@ -73,6 +80,14 @@ export default function DeletePolicy() {
           <div>No Policies owned by you</div>
         )}
       </div>
+      {dialogBox && (
+        <DialogBox
+          message={dialogMsg}
+          param={deletePolicyId}
+          executeFunc={handleDeletePolicy}
+          toggleDialogBox={toggleDialogBox}
+        />
+      )}
     </div>
   );
 }

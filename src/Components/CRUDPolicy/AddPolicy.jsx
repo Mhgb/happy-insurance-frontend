@@ -52,6 +52,7 @@ export default function AddPolicy() {
     <div className="add-policy-container">
       <h2>Add Policy</h2>
       <form
+        id="add-policy-form"
         className="field-container"
         onSubmit={(event) => handleAddPolicy(event)}
       >

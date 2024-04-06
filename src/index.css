@@ -1,11 +1,11 @@
 html{
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #959697 #FFF;
   color: #282C34;
-  /* width: 100vw; */
 }
 body {
   margin: 0;
   font-family: Poppins, Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, san-serif;
   -webkit-font-smoothing: antialiased;
-  /* -moz-osx-font-smoothing: grayscale; */
 }
