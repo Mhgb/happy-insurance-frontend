@@ -34,3 +34,9 @@
 #trash-icon:hover{
     transform: rotate(15deg);
 }
+
+@media (max-width:480px) {
+    .policy-tbl{
+        margin-left: 650px;
+    }
+}

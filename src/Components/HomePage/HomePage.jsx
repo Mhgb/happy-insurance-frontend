@@ -10,6 +10,7 @@ function HomePage() {
   const userId = sessionStorage.getItem("userId");
   const isAdmin = sessionStorage.getItem("isAdmin");
 
+  const [subDD, toogleSubDD] = useState(false);
   const [navbar, toggleNavbar] = useState(false);
   const [policyEditing, togglePolicyEditing] = useState(false);
 
@@ -25,7 +26,9 @@ function HomePage() {
 
   return (
     <div className="home-container">
-      <div className="home-content-left">
+      <div
+        className={navbar ? "home-content-left collapse" : "home-content-left"}
+      >
         <span className="home-greeting">
           <img
             src={menuIcon}
@@ -33,11 +36,11 @@ function HomePage() {
             id="home-menu-icon"
             onClick={() => toggleNavbar((prev) => !prev)}
           />
-          <p className={navbar ? "hide" : ""}>Welcome {context.user} </p>
+          <p className="home-greeting-txt">Welcome {context.user} </p>
         </span>
-        <div className={navbar ? "hide" : "home-options"}>
+        <div className="home-options">
           <div className="links-container">
-            <NavLink className="navigate options-link" to={"select-policy"}>
+            <NavLink className="navigate" to={"select-policy"}>
               Choose Policy
             </NavLink>
             <br />
@@ -51,7 +54,11 @@ function HomePage() {
 
             <br />
             {isAdmin === "agent" && (
-              <>
+              <div
+                className={
+                  policyEditing ? "dd-container dd-collapse" : "dd-container"
+                }
+              >
                 <div
                   className="navigate"
                   id="modify-policy"
@@ -61,20 +68,14 @@ function HomePage() {
                   Modify Policy
                   <i className={policyEditing ? "down" : "right"}></i>
                 </div>
-                <div
-                  className={
-                    policyEditing ? "drop-down-navigate" : "close-dropdown"
-                  }
-                >
-                  <NavLink to={"add-policy"} className="navigate">
-                    New Policy
-                  </NavLink>
-                  <NavLink to={"delete-policy"} className="navigate">
-                    Delete Policy
-                  </NavLink>
-                </div>
+                <NavLink to={"add-policy"} className="navigate sub-nav-link">
+                  New Policy
+                </NavLink>
+                <NavLink to={"delete-policy"} className="navigate sub-nav-link">
+                  Delete Policy
+                </NavLink>
                 <br />
-              </>
+              </div>
             )}
             <Link
               className="navigate"
@@ -101,7 +102,11 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="home-main-content">
+      <div
+        className={
+          navbar ? "home-main-content m-50" : "home-main-content m-250"
+        }
+      >
         <Outlet context={context} />
       </div>
     </div>
