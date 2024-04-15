@@ -4,18 +4,22 @@
     gap: 2rem;
     align-items: center;
     justify-content: space-around;
-    padding-bottom: 50px;
+    padding: 50px 0;
+}
+
+.feedback-page{
+    padding-top: 20px;
 }
 
 .feedback,.tips{
     background-color: #f8f7f4;
     box-shadow: 0 6px 12px 0 rgba(51,56,70,.1);
     padding: 10px 30px;
+    width: 450px;
 }
 .feedback{
     display: flex;
     flex-direction: column;
-    width: 360px;
     gap: 1rem;
 }
 
@@ -27,7 +31,6 @@
 .tips{
     font-size: medium;
     text-align: left;
-    width: 360px;
     height: 250px;
 }
 
@@ -42,7 +45,7 @@
     display: flex;
     justify-content: center;
     height: 300px;
-    width: 360px;
+    width: 500px;
     transition: 1s;
     border-radius: 5px;
     background-color: #BFEA7C;
@@ -75,7 +78,7 @@
 }
 
 @media (max-width:480px){
-    .feedback{
+    .feedback, .tips, .feedback-cards-container {
         width: calc(360px - 60px);
     }
 }

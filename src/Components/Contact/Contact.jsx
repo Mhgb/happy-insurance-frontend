@@ -4,12 +4,15 @@ function Contact() {
   return (
     <div>
       <div className="contact-us">
+        <div className="contact-header">
+          <h2>Contact us</h2>
+        </div>
         <div id="contact-card-container">
           <div id="motor-insurance" className="contact-card">
-            <h2>Motor Insurance</h2>
+            <h2>Vehicle Insurance</h2>
             <span className="mobile-no">
               <h3>CALL US</h3>
-              <h1>967 767 4091</h1>
+              <h1>967 767 8790</h1>
               <p>
                 (Mon to Sun 24/7 Available excluding national and gazetted
                 holidays)
@@ -24,7 +27,7 @@ function Contact() {
             <h2>Health Insurance</h2>
             <span className="mobile-no">
               <h3>CALL US</h3>
-              <h1>967 767 4091</h1>
+              <h1>967 767 8790</h1>
               <p>
                 (Mon to Sun 24/7 Available excluding national and gazetted
                 holidays)

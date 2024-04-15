@@ -136,9 +136,6 @@
 }
 
 @media (max-width:480px){
-    .register-container img{
-        display: none;
-    }
     .info-container h2{
         font-size: 30px;
     }
@@ -148,4 +145,11 @@
     .register-nav h2{
         margin: 20px 0;
     }
+}
+
+@media (max-width:768px){
+    .register-container img{
+        display: none;
+    }
+    
 }

@@ -78,7 +78,7 @@ function Feedback() {
   };
 
   return (
-    <div>
+    <div className="feedback-page">
       <h2>Tell us about your experience</h2>
       <div className="feedback-container">
         <div className="feedback">

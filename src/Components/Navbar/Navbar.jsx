@@ -37,7 +37,7 @@ export default function Navbar({ user }) {
           </div> */}
           <ul
             className={
-              displayMenuIcon ? "close navlink-container" : "navlink-container"
+              displayMenuIcon ? "navlink-container" : "close navlink-container"
             }
           >
             <li>
