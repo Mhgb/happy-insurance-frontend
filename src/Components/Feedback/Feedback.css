@@ -77,6 +77,11 @@
     text-align: center;
 }
 
+@media (max-width:768px){
+    .feedback, .tips, .feedback-cards-container {
+        width: calc(450px - 60px);
+    }
+}
 @media (max-width:480px){
     .feedback, .tips, .feedback-cards-container {
         width: calc(360px - 60px);
